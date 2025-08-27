@@ -1,0 +1,47 @@
+# -*- mode:python-ts; -*-
+import re
+
+
+sentence = 'I love to eat pizza and pasta 3 times a day'
+print(re.findall(r'a.d', sentence))
+print(re.findall(r'pi.*ta', sentence))
+print(re.findall(r'lo.+at', sentence))
+print(re.findall(r'piz?za', sentence))
+print(re.findall(r'\bpizza\b', sentence))
+print(re.findall(r'\Ba\B', sentence))
+print(re.findall(r'\d', sentence))
+print(re.findall(r'\w', sentence))
+print(re.findall(r'pizza\sand\spasta', sentence))
+print(re.findall(r'\D', sentence))
+print(re.findall(r'\W', sentence))
+print(re.findall(r'\S', sentence))
+
+pattern = '((pizza)|(pasta))'
+matches = re.findall(pattern, sentence)
+print('Captured words:', matches)
+
+text = 'The quick brown fox jumps over the lazy dog 123 times.'
+match = re.search(r'\d', text)
+if match:
+    print('First digit found at position:', match.start())
+
+result = re.split(r'[,;.]', text)
+print('Words after splitting:', result)
+
+result = re.sub(r'\d+', 'NUMBER', text)
+print('Text after replacing digits:', result)
+
+result = re.findall(r'\b\w+\b', text)
+print('Words in the text:', result)
+
+x = re.search(r'I love to eat (\w+) and (\w+)', sentence)
+print(f'group 1 is: {x.group(1)} group 2 {x.group(2)}')
+
+x = re.search(r'I love to eat (?:pizza) and (\w+)', sentence)
+print(f'group 1 is: {x.group(1)}')
+
+x = re.search(r'\w+(?= times)', sentence)
+print(f'group 1 is: {x.group()}')
+
+x = re.search(r'(\w+) and \1', sentence)
+print(f'group 1 is: {x}')

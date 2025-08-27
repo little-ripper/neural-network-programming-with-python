@@ -1,0 +1,6 @@
+# -*- mode: python-ts; -*-
+from private_in_python_pag_42 import Player, Coach
+
+player = Player('Mich Jord', 'Bask')
+coach = Coach('Phil', player)
+print(coach.command_player())

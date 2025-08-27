@@ -1,0 +1,22 @@
+# -*- mode: python-ts; -*-
+class Player:
+    def __init__(self, name, sport):
+        self.name = name
+        self.sport = sport
+
+    def _run(self):
+        return 'Running!'
+
+
+class Coach:
+    def __init__(self, name, player):
+        self.name = name
+        self.player = player
+
+    def command_player(self):
+        return self.player._run()
+
+
+player = Player('Mich Jord', 'Bask')
+coach = Coach('Phil', player)
+print(coach.command_player())
