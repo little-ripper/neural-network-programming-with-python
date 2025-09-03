@@ -1,0 +1,13 @@
+# -*- mode:python-ts; -*-
+import numpy as np
+
+
+def rbf_gaussian(x, z, gamma):
+    distance = np.linalg.norm(x-z)**2
+    return np.exp(-gamma*distance)
+
+
+x = np.array([1, 2, 3])
+z = np.array([4, 5, 6])
+gamma = 0.1
+print(rbf_gaussian(x, z, gamma))

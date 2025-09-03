@@ -1,0 +1,40 @@
+# -*- mode:python-ts; -*-
+import numpy as np
+
+
+# sigmoid
+def sigmoid(z):
+    return 1.0 / (1 + np.exp(-z))
+
+
+def sigmoid_prime(z):
+    return sigmoid(z) * (1-sigmoid(z))
+
+
+# tanh
+def tanh(z):
+    return (np.exp(z) - np.exp(-z)) / (np.exp(z) + np.exp(-z))
+
+
+def tanh_prime(z):
+    return 1 - np.pwer(tanh(z), 2)
+
+
+# ReLu
+def relu(z):
+    return max(0, z)
+
+
+def relu_prime(z):
+    return (z > 0 and 1) or 0
+
+
+# leaky_relu
+def leaky_relu(z):
+    alpha = 0.1
+    return (z > 0 and z) or alpha*z
+
+
+def leaky_relu_prime(z):
+    alpha = 0.1
+    return (z > 0 and 1) or alpha
